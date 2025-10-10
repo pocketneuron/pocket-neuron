@@ -1,2 +1,2 @@
 # pocket-neuron
-App data
+Started on 12:11 oct 10  friday 2025
