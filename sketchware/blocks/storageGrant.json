@@ -1,0 +1,12 @@
+[
+  {
+    "code": "if (Build.VERSION.SDK_INT \u003e\u003d Build.VERSION_CODES.R) {\n    // Android 11+\n    if (!Environment.isExternalStorageManager()) {\n        try {\n            Intent intent \u003d new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);\n            intent.setData(Uri.parse(\"package:\" + getPackageName()));\n            startActivity(intent);\n        } catch (Exception e) {\n            Intent intent \u003d new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);\n            startActivity(intent);\n        }\n    }\n} else if (Build.VERSION.SDK_INT \u003e\u003d Build.VERSION_CODES.M) {\n    // Android 6–10\n    if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)\n        !\u003d PackageManager.PERMISSION_GRANTED ||\n        checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)\n        !\u003d PackageManager.PERMISSION_GRANTED) {\n\n        requestPermissions(\n            new String[]{\n                Manifest.permission.READ_EXTERNAL_STORAGE,\n                Manifest.permission.WRITE_EXTERNAL_STORAGE\n            }, \n            1001\n        );\n    }\n} else {\n    // Below Android 6 (auto granted at install time)\n}",
+    "imports": "android.Manifest\nandroid.content.pm.PackageManager",
+    "color": "#4A148C",
+    "name": "Storage Permission By POCKET NEURON ",
+    "typeName": "",
+    "palette": "10",
+    "type": " ",
+    "spec": "Give Permission"
+  }
+]
